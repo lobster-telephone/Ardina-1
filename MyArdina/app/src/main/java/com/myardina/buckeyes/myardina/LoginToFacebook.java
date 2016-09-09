@@ -47,6 +47,7 @@ public class LoginToFacebook extends AppCompatActivity {
         // skip login if user is already logged in
         if (Profile.getCurrentProfile() != null) {
             Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
+            intent.putExtra("user_name", Profile.getCurrentProfile().getFirstName());
             startActivity(intent);
         }
 
