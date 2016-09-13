@@ -100,6 +100,7 @@ public class LoginToFacebook extends AppCompatActivity {
                 }
 
                 Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
+                intent.putExtra("user_name", Profile.getCurrentProfile().getFirstName());
                 startActivity(intent);
             }
 
