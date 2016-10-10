@@ -24,7 +24,7 @@ import com.myardina.buckeyes.myardina.Common.Utility.CommonConstants;
 /**
  * A login screen that offers login via email/password.
  */
-public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
+public class LoginActivity extends AppCompatActivity implements View.OnClickListener, View.OnFocusChangeListener {
 
     private UserLoginTask mAuthTask = null;
 
@@ -40,11 +40,12 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         // Set up the login form.
         mEmailView = (EditText) findViewById(R.id.email);
+        mEmailView.setOnFocusChangeListener(this);
         mPasswordView = (EditText) findViewById(R.id.password);
+        mPasswordView.setOnFocusChangeListener(this);
 
         Button mEmailSignInButton = (Button) findViewById(R.id.email_sign_in_button);
         mEmailSignInButton.setOnClickListener(this);
-
         Button mEmailRegisterButton = (Button) findViewById(R.id.email_register_button);
         mEmailRegisterButton.setOnClickListener(this);
     }
@@ -59,7 +60,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             case R.id.email_register_button:
                 Intent registerActivity = new Intent(LoginActivity.this, RegisterActivity.class);
                 String email = mEmailView.getText().toString();
-                if (!email.equals("")) {
+                if (!TextUtils.isEmpty(email)) {
                     registerActivity.putExtra(CommonConstants.EXTRA_EMAIL, email);
                 }
                 LoginActivity.this.startActivity(registerActivity);
@@ -69,11 +70,27 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         }
     }
 
+    @Override
+    public void onFocusChange(View v, boolean hasFocus) {
+        int id = v.getId();
+        if (!hasFocus) {
+            switch (id) {
+                case R.id.email:
+                    validateEmail(mEmailView.getText().toString());
+                    break;
+                case R.id.password:
+                    validatePassword(mPasswordView.getText().toString());
+                    break;
+                default:
+                    break;
+            }
+        }
+    }
+
     /**
      * Attempts to sign in or register the account specified by the login form.
      * If there are form errors (invalid email, missing fields, etc.), the
      * errors are presented and no actual login attempt is made.
-     * int l_r is 0 if login 1 if register
      */
     private void attemptLogin() {
         if (mAuthTask != null) {
@@ -88,39 +105,50 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         String email = mEmailView.getText().toString();
         String password = mPasswordView.getText().toString();
 
-        mAuthTask = new UserLoginTask(email, password, this);
-
-        boolean cancel = false;
         View focusView = null;
 
-        // Check for a valid password, if the user entered one.
-        if (!TextUtils.isEmpty(password) && !isPasswordValid(password)) {
-            mPasswordView.setError(getString(R.string.error_invalid_password));
-            focusView = mPasswordView;
-            cancel = true;
-        }
+        boolean validPassword = validatePassword(password);
+        focusView = validPassword ? mPasswordView : focusView;
 
-        // Check for a valid email address.
-        if (TextUtils.isEmpty(email)) {
-            mEmailView.setError(getString(R.string.error_field_required));
-            focusView = mEmailView;
-            cancel = true;
-        } else if (!isEmailValid(email)) {
-            mEmailView.setError(getString(R.string.error_invalid_email));
-            focusView = mEmailView;
-            cancel = true;
-        }
+        boolean validEmail = validateEmail(email);
+        focusView = validEmail ? mEmailView : focusView;
 
-        if (cancel) {
+        if (focusView != null) {
             // There was an error; don't attempt login and focus the first
             // form field with an error.
             focusView.requestFocus();
-        } else{
+        } else {
             // perform the user login attempt.
             mAuthTask = new UserLoginTask(email, password, this);
             mAuthTask.execute((Void) null);
             mAuthTask = null; //important do not remove
         }
+    }
+
+    private boolean validatePassword(String password) {
+        boolean result = false;
+        // Check for a valid password.
+        if (TextUtils.isEmpty(password)) {
+            mPasswordView.setError(getString(R.string.error_field_required));
+            result = true;
+        } else if (!TextUtils.isEmpty(password) && !isPasswordValid(password)) {
+            mPasswordView.setError(getString(R.string.error_invalid_password));
+            result = true;
+        }
+        return result;
+    }
+
+    private boolean validateEmail(String email) {
+        boolean result = false;
+        // Check for a valid email address.
+        if (TextUtils.isEmpty(email)) {
+            mEmailView.setError(getString(R.string.error_field_required));
+            result = true;
+        } else if (!isEmailValid(email)) {
+            mEmailView.setError(getString(R.string.error_invalid_email));
+            result = true;
+        }
+        return result;
     }
 
     private boolean isEmailValid(String email) {

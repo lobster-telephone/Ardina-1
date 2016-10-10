@@ -1,8 +1,9 @@
 <resources>
+    <!-- Application -->
     <string name="app_name">MyArdina</string>
     <string name="facebook_app_id">1647878202208728</string>
 
-    <!-- Strings related to login -->
+    <!-- Login/Register -->
     <string name="prompt_email">Email</string>
     <string name="prompt_email_confirm">Confirm Email</string>
     <string name="prompt_password">Password</string>
@@ -17,8 +18,13 @@
     <string name="permission_rationale">"Contacts permissions are needed for providing email
         completions."
     </string>
+    <string name="error_email_mismatch">The email does not match the original</string>
+    <string name="error_password_mismatch">The password does not match the originalt</string>
+
+    <!-- Symptoms -->
     <string name="symptoms">Symptoms</string>
 
+    <!-- Application -->
     <string name="title_activity_register">RegisterActivity</string>
     <string name="title_activity_home">HomeActivity</string>
     <string name="title_activity_symptoms">SymptomsActivity</string>
