@@ -30,19 +30,24 @@ public class SplashActivity extends AppCompatActivity {
         Thread splashTimer = new Thread() {
             public void run() {
                 try {
-                    int splashTime = 0;
-                    while (splashTime < 3000) {
-                        splashTime = splashTime + 1000;
-                    }
-                    intent = new Intent(getApplicationContext(), LoginActivity.class);
-                    startActivity(intent);
-                } catch (IllegalThreadStateException e) {
+                    sleep(3000);
+
+                } catch (InterruptedException e) {
                     e.printStackTrace();
                 } finally {
-                    finish();
+                    intent = new Intent(getApplicationContext(), LoginActivity.class);
+                    startActivity(intent);
                 }
             }
         };
         splashTimer.start();
     }
+
+    @Override
+    protected void onPause() {
+        // TODO Auto-generated method stub
+        super.onPause();
+        finish();
+    }
+
 }

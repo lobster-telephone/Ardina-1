@@ -53,7 +53,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     @Override
     public void onClick(View v) {
         int id = v.getId();
-        switch(id) {
+        switch (id) {
             case R.id.email_sign_in_button:
                 attemptLogin();
                 break;
@@ -179,7 +179,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         @SuppressWarnings("unchecked")
         @Override
         protected Boolean doInBackground(Void... params) {
-            Task<AuthResult> login_task  = auth.signInWithEmailAndPassword(mEmail, mPassword);
+            Task<AuthResult> login_task = auth.signInWithEmailAndPassword(mEmail, mPassword);
             OnSuccessListener login_success = new OnSuccessListener() {
                 @Override
                 public void onSuccess(Object o) {
@@ -217,38 +217,37 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     // Implement the animation for the logo from the center of the screen here
     @Override
-    protected void onStart(){
+    protected void onStart() {
         System.out.println("onStart method for LoginActivity being called");
         super.onStart();
     }
 
     @Override
-    protected void onRestart(){
+    protected void onRestart() {
         System.out.println("onRestart method for LoginActivity being called");
         super.onRestart();
     }
 
     @Override
-    protected void onPause(){
+    protected void onPause() {
         System.out.println("onPause method for LoginActivity being called");
         super.onPause();
     }
 
     @Override
-    protected void onResume(){
+    protected void onResume() {
         System.out.println("onResume method for LoginActivity being called");
         super.onResume();
     }
 
     @Override
-    protected void onStop()
-    {
+    protected void onStop() {
         System.out.println("onStop method for LoginActivity being called");
         super.onStop();
     }
 
     @Override
-    protected void onDestroy(){
+    protected void onDestroy() {
         System.out.println("onDestroy method for LoginActivity being called");
         super.onDestroy();
     }
