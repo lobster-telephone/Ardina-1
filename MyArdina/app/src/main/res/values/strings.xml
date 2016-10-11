@@ -19,7 +19,7 @@
         completions."
     </string>
     <string name="error_email_mismatch">The email does not match the original</string>
-    <string name="error_password_mismatch">The password does not match the originalt</string>
+    <string name="error_password_mismatch">The password does not match the original</string>
 
     <!-- Symptoms -->
     <string name="symptoms">Symptoms</string>
