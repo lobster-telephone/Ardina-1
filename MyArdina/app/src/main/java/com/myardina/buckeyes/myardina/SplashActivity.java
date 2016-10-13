@@ -25,7 +25,6 @@ public class SplashActivity extends AppCompatActivity {
         //set content view AFTER ABOVE sequence (to avoid crash)
         this.setContentView(R.layout.activity_splash);
 
-        TextView txt = (TextView) findViewById(R.id.textView);
 
         Thread splashTimer = new Thread() {
             public void run() {
