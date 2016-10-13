@@ -8,7 +8,7 @@ import android.view.WindowManager;
 import android.widget.TextView;
 
 /**
- * Created by sachinda on 10/11/16.
+ * Activity for the splash screen
  */
 
 public class SplashActivity extends AppCompatActivity {
@@ -17,20 +17,17 @@ public class SplashActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         //Remove title bar
         this.supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
         //Remove notification bar
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        //set content view AFTER ABOVE sequence (to avoid crash)
         this.setContentView(R.layout.activity_splash);
 
-
+        //thread created to put the activity to sleep for 3 seconds
         Thread splashTimer = new Thread() {
             public void run() {
                 try {
                     sleep(3000);
-
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 } finally {
