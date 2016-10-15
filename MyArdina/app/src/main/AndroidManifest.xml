@@ -18,6 +18,7 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light">
+<<<<<<< HEAD
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
             android:value="@string/facebook_app_id" />
@@ -26,13 +27,34 @@
             android:name=".HomeActivity"
             android:label="HomeActivity" />
         <activity android:name=".LoginActivity">
+=======
+        <activity android:name=".SplashActivity">
+>>>>>>> 389620918450483ab04649f0b4643b9e2fc1ea75
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+<<<<<<< HEAD
         <activity android:name=".SymptomsActivity"></activity>
+=======
+        <activity android:name=".LoginActivity">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".RegisterActivity"
+            android:label="@string/title_activity_register" />
+        <activity
+            android:name=".HomeActivity"
+            android:label="@string/title_activity_home" />
+        <activity
+            android:name=".SymptomsActivity"
+            android:label="@string/title_activity_symptoms" />
+        <!--android:theme="@style/Theme.AppCompat.Light.NoActionBar" />-->
+>>>>>>> 389620918450483ab04649f0b4643b9e2fc1ea75
     </application>
 
 </manifest>

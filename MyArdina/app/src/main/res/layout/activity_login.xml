@@ -1,5 +1,4 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -25,15 +24,11 @@
         android:id="@+id/login_form"
         android:layout_below="@+id/login_top_bar">
 
-
-
         <LinearLayout
             android:id="@+id/email_login_form"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-
-
 
                 <EditText
                     android:id="@+id/email"
@@ -43,9 +38,6 @@
                     android:inputType="textEmailAddress"
                     android:maxLines="1"
                     android:singleLine="true" />
-
-
-
 
                 <EditText
                     android:id="@+id/password"
@@ -58,8 +50,6 @@
                     android:inputType="textPassword"
                     android:maxLines="1"
                     android:singleLine="true" />
-
-
 
             <Button
                 android:id="@+id/email_sign_in_button"
@@ -82,8 +72,6 @@
                 android:textStyle="bold" />
 
         </LinearLayout>
-
-
     </RelativeLayout>
 
     <RelativeLayout
