@@ -17,7 +17,6 @@
     </string>
 
 
-
     <string name="action_settings">Settings</string>
     <string name="go_to_fb_login">Login with Facebook!</string>
     <string name="go_to_maps_activity">View Map to Find a Game!</string>
@@ -92,4 +91,12 @@
     <string name="touchdowns">Touchdowns: </string>
     <string name="interceptions">Interceptions: </string>
     <string name="aces">Aces: </string>
+
+
+    <string name="male">Male</string>
+    <string name="ventral">Front</string>
+    <string name="dorsal">Back</string>
+    <string name="male_ventral">male body frontal view"</string>
+    <string name="female">Female</string>
+
 </resources>

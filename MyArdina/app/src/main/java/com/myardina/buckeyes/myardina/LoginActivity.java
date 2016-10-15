@@ -233,7 +233,7 @@ public class LoginActivity extends AppCompatActivity{
             OnSuccessListener login_success = new OnSuccessListener() {
                 @Override
                 public void onSuccess(Object o) {
-                    Intent nextActivity = new Intent(LoginActivity.this, HomeActivity.class);
+                    Intent nextActivity = new Intent(LoginActivity.this, SymptomsActivity.class);
                     LoginActivity.this.startActivity(nextActivity);
                 }
             };
