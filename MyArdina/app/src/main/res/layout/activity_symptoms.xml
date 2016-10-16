@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
@@ -137,5 +137,3 @@
 
 
 </RelativeLayout>
-
->>>>>>> 389620918450483ab04649f0b4643b9e2fc1ea75
