@@ -174,19 +174,3 @@ public class SymptomsActivity extends AppCompatActivity {
 
     }
 }
-=======
-package com.myardina.buckeyes.myardina;
-
-import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-
-public class SymptomsActivity extends AppCompatActivity {
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_symptoms);
-    }
-
-}
->>>>>>> 389620918450483ab04649f0b4643b9e2fc1ea75
