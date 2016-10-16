@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 package com.myardina.buckeyes.myardina;
 
 import android.support.v7.app.AppCompatActivity;
